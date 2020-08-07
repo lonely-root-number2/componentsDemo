@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .demo {
+            width: 300px;
+            height: 300px;
+            border: solid 1px green;
+        }
+
+        /*  ------------ */
+        #exp {
+            border: solid black 1px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        tr:hover td {
+            background-color: #eee;
+        }
+
+        .menu {
+            height: 130px;
+            width: 80px;
+            /* border-radius: 10px; */
+            border: 1px solid #999999;
+            background-color: #f4f4f4;
+        }
+
+        .menu li {
+            display: block;
+            line-height: 20px;
+        }
+
+        .menu li:hover {
+            background-color: #1790ff;
+            color: white;
+        }
+
+        #pos {
+            position: fixed;
+            top: 50px;
+            left: 10px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="hide" id="pos">
+            <ul class="menu">
+                <li>打开</li>
+                <li>剪切</li>
+                <li>复制</li>
+                <li>删除</li>
+                <li>重命名</li>
+                <li>属性</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        window.onload = function () {
+            document.oncontextmenu = function (e) {
+                console.log("-------")
+                document.getElementById("pos").classList.remove("hide")
+                let dom_menu = document.getElementById("pos");
+                console.log(dom_menu);
+                dom_menu.style.left = e.clientX + "px";
+                dom_menu.style.top = e.clientY - 10 + "px";
+                return false;
+            };
+        }
+
+
+    </script>
+</body>
+
+</html>
