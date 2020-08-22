@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="progressBar"></div>
+    <script>
+
+        function ProgressBar(eleid,elewidth) {
+            let bgele = document.getElementById(eleid);
+            let proele = document.createElement("div");
+            let cirele = document.createElement("div");
+            bgele.appendChild(proele);
+            bgele.appendChild(cirele);
+            function render() {
+                bgele.style.width = elewidth+"px";
+                bgele.style.height = "5px";
+                bgele.style.backgroundColor = "#77645A";
+                bgele.style.fontSize = 0;
+                bgele.style.cursor = "pointer";
+
+                proele.style.height = "100%";
+                proele.style.width = "50%";
+                proele.style.backgroundColor = "#16B76F";
+                proele.style.display = "inline-block";
+                proele.style.verticalAlign = "top";
+
+                cirele.style.height = "200%";
+                cirele.style.width = parseInt(bgele.style.height) * 2 + "px";
+                cirele.style.backgroundColor = "#16B76F";
+                cirele.style.borderRadius = "50%"
+                cirele.style.display = "inline-block";
+                // cirele.style.lineHeight="50%";
+                cirele.style.marginTop = "-" + parseInt(bgele.style.height) / 2 + "px";
+            }
+            render();
+            function setPercent(percent) {
+                if(percent<=1.3){
+                    percent = 1.3;
+                }
+                proele.style.width = percent - 1.3 + "%";
+            }
+            return {
+                setPercent,
+                bgele,
+                proele,
+                cirele
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
